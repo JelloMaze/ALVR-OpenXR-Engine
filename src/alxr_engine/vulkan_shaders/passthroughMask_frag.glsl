@@ -8,8 +8,8 @@
 #pragma fragment
 
 // TODO: Make this into a specialization constant.
-const vec3 key_color = vec3(0.0001, 0.15, 0.0001);
-const vec3 key_color2 = vec3(0.12, 0.999, 0.12);
+//const vec3 key_color = vec3(0.0001, 0.15, 0.0001);
+//const vec3 key_color2 = vec3(0.12, 0.999, 0.12);
 
 #include "common/baseVideoFrag.glsl"
 
@@ -18,6 +18,7 @@ layout(location = 0) out vec4 FragColor;
 void main()
 {
     vec4 color = SampleVideoTexture();
-    color.a = (all(greaterThan(color.rgb, key_color)) && all(lessThan(color.rgb, key_color2))) ? 0.01f : 1.0f; 
+    //color.a = (all(greaterThan(color.rgb, key_color)) && all(lessThan(color.rgb, key_color2))) ? 0.01f : 1.0f; 
+    color.a = (greaterThan(color.g, color.r+0.05) && greaterThan(color.g, color.b+0.05)) ? 0.01f : 1.0f;
     FragColor = color;
 }
