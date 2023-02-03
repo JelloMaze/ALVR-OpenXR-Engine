@@ -19,6 +19,6 @@ void main()
 {
     vec4 color = SampleVideoTexture();
     //color.a = (all(greaterThan(color.rgb, key_color)) && all(lessThan(color.rgb, key_color2))) ? 0.01f : 1.0f; 
-    color.a = ((color.g>(color.r)) && (color.g>(color.b)) && (color.g>0.025) && ((color.r<0.5) || (color.b<0.5) )) ? 0.0001f : 1.0f;
+    color.a = ((color.g>(color.r+0.1)) && (color.g>(color.b+0.1)) && (color.g>0.025) && ((color.r<0.5) || (color.b<0.5) )) ? 0.0001f : 1.0f;
     FragColor = color;
 }
